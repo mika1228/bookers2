@@ -1,10 +1,11 @@
 <h2>User info</h2>
 
-<th><%= image_tag current_user.get_profile_image(100,100) %></th><br>
+<th><%= image_tag current_user.get_profile_image(80,80) %></th><br>
 <th>name <%= current_user.name %></th><br>
 <th>introduction <%= current_user.introduction %> </th><br>
 <th><%= link_to "Edit", edit_user_path(current_user.id) %></th>
 
+<p id="notice"><%= notice %></p>
 
 <h2>New book</h2>
 
