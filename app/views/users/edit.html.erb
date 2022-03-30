@@ -17,14 +17,21 @@
       <% end %>
 
       <%= form_with model: @user, url: update_user_path(@user.id), method: :patch do |f| %>
-        <label for="inputName">Name</label><br>
-        <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前"%><br>
-        <label for="inputImage">Image</label><br>
-        <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %><br>
-        <label for="inputIntroduction">Introduction</label><br>
-        <%= f.text_area :introduction %><br>
-
-        <%= f.submit "Update User" %>
+        <label for="inputName">Name</label>
+          <div class="form-group">
+            <%= f.text_field :name, class: "form-control", autofocus: true, id:"inputName", placeholder:"名前"%>
+          </div>
+        <label for="inputImage">Image</label>
+          <div class="form-group">
+            <%= f.file_field :profile_image, class: "form-control-file", placeholder: "プロフィール画像", accept: "image/*" %>
+          </div> 
+        <label for="inputIntroduction">Introduction</label>
+          <div class="form-group">
+            <%= f.text_area :introduction, class: "form-control" %>
+          </div>
+        <div class="form-group">
+        <%= f.submit "Update User", class: "btn btn-secondary" %>
+        </div>
       <% end %>
     
     </div>
