@@ -1,19 +1,22 @@
 <p id="notice"><%= notice %></p>
 
-<div class="container">
+<div class="container px-5 px-sm-0">
   <div class="row">
-    
-    <div class="col-lg-4">
+
+    <div class="col-md-3">
       <%= render 'list', book: @new_book, user: @user %>
     </div>
-    
-    <div class="col-lg-8">
+
+    <div class="col-md-8 offset-md-1">
       <h2>Book detail</h2>
 
       <table class="table">
         <tbody>
             <tr>
-              <th><%= image_tag @book.user.get_profile_image(50,50) %><br>
+              <th>
+                <%= link_to user_path(@user.id) do %>
+                  <%= image_tag @book.user.get_profile_image(50,50) %><br>
+                <% end %>
                   <%= link_to @book.user.name, user_path(@user.id) %>
               </th>
               <th><%= link_to @book.title, book_path(@book.id) %></th>
@@ -27,8 +30,8 @@
             </tr>
         </tbody>
       </table>
-      
+
     </div>
-    
+
   </div>
 </div>

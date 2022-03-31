@@ -1,6 +1,15 @@
+<% if book.errors.any? %>
+  <%= book.errors.count %>rrors prohibited this book from being saved:
+  <ul>
+    <% book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <h2>User info</h2>
 
-<th><%= image_tag user.get_profile_image(80,80) %></th><br>
+<th><%= image_tag user.get_profile_image(80,80) %></th>
 
 <table class="table">
   <tbody>
@@ -16,9 +25,16 @@
 </table>
 
 <div class="form-group">
-<th><%= link_to edit_user_path(current_user.id), class: "btn btn-outline-secondary btn-sm btn-block" do %>
-  <i class="fas fa-user-cog"></i>
-</th>
+<% if user == current_user %>
+  <th><%= link_to edit_user_path(current_user.id), class: "btn btn-outline-secondary btn-sm btn-block" do %>
+    <i class="fas fa-user-cog"></i>
+  </th>
+  <% end %>
+<% else %>
+  <th><%= link_to user_path(current_user.id), class: "btn btn-outline-secondary btn-sm btn-block" do %>
+    <i class="fas fa-user-cog"></i>
+  </th>
+  <% end %>
 <% end %>
 </div>
 
